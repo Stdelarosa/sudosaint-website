@@ -1,0 +1,194 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url(fonts/AudioLinkMono-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'CustomFont', Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrollbars */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video-background {
+    position: fixed; /* Fix the video background in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure the video is behind the content */
+    overflow: hidden; /* Hide anything outside the video area */
+}
+
+#video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire area */
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.63); /* Black overlay with 50% opacity */
+    z-index: 1; /* Ensure it is behind the content but above the video */
+}
+
+.container {
+    position: relative; /* Ensure content is above the video */
+    z-index: 2; /* Ensure the container content is on top of the video */
+    width: 1000px;
+    height: 600px;
+    margin: auto; /* Center the container */
+    background-color: #262727;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    overflow: hidden;
+    display: flex;
+    font-family: 'CustomFont', Arial, Helvetica, sans-serif;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #262727;
+    padding: 15px;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #ecf0f1; /* Vertical line separating sidebar from content */
+    font-family: 'CustomFont', Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.nav-item {
+    margin-bottom: 10px;
+}
+
+.dropdown-btn {
+    background-color: #262727;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 20px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+    position: relative;
+    font-size: 16px;
+    font-family: 'CustomFont', Arial, Helvetica, sans-serif;
+}
+
+.dropdown-btn::before {
+    content: "\25BC"; /* Down arrow */
+    font-size: 12px;
+    transition: transform 0.3s;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dropdown-btn.active::before {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.vertical-line {
+    position: absolute;
+    left: 9.25px;
+    top: 0%;
+    width: 1px;
+    background-color: #ecf0f1;
+    height: 0;
+    transition: height 0.3s ease;
+}
+
+.dropdown-container {
+    display: none;
+    background-color: #262727;
+    padding-left: 30px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    position: relative;
+}
+
+.dropdown-container a {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: #ecf0f1;
+    transition: background-color 0.3s;
+    font-family: 'CustomFont', Arial, Helvetica, sans-serif;
+}
+
+.dropdown-container a:hover,
+.dropdown-container a.active {
+    background-color: #363636;
+}
+
+.nav-items {
+    flex-grow: 1;
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.social-links a {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.social-links a:hover img {
+    transform: scale(1.2);
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #262727;
+    overflow: auto;
+}
+
+#project-content {
+    border: 1px solid #cfcfcf;
+    padding: 20px;
+    background-color: #363636;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    color: #ecf0f1;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SudoSaint</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="overlay"></div>
+    <div id="video-background">
+        <video autoplay loop muted>
+            <source src="background0.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="nav-items">
+                <div class="nav-item">
+                    <button class="dropdown-btn">Projects</button>
+                    <div class="dropdown-container">
+                        <div class="vertical-line"></div>
+                        <a href="#" class="project-link" data-project="passgen">Passgen</a>
+                        <a href="#" class="project-link" data-project="project2">Project2</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button class="dropdown-btn">Resources</button>
+                    <div class="dropdown-container">
+                        <div class="vertical-line"></div>
+                        <!-- Add resource links here -->
+                    </div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/saint/" target="_blank">
+                    <img src="linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Stdelarosa" target="_blank">
+                    <img src="github.png" alt="GitHub">
+                </a>
+                <a href="https://www.instagram.com/sudosaint" target="_blank">
+                    <img src="instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <div id="project-content">
+                <!-- Project content will be loaded here -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
