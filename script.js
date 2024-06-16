@@ -30,40 +30,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    function loadProjectContent(project) {
+    async function loadProjectContent(project) {
         const projectContent = document.getElementById('project-content');
         if (project === 'passgen') {
-            projectContent.innerHTML = `
-                <h2>Passgen</h2>
-                <div class="container">
-                    <div class="box" id="password-box">
-                        <p id="password"></p>
-                    </div>
-                    <div class="input-box">
-                        <textarea id="keywords" name="keywords" placeholder="Enter keywords separated by commas"></textarea>
-                        <div class="buttons">
-                            <button onclick="generatePassword()">Generate</button>
-                            <button onclick="generatePasswordWithKeywords()">Generate w/ Keywords</button>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    function generatePassword() {
-                        fetch('https://sudosaint-passgen-b07861d020a3.herokuapp.com/generate', {method: 'POST'})
-                        .then(response => response.json())
-                        .then(data => document.getElementById('password').innerText = data.password);
-                    }
-                    function generatePasswordWithKeywords() {
-                        const keywords = document.getElementById('keywords').value;
-                        fetch('https://sudosaint-passgen-b07861d020a3.herokuapp.com/generate_with_keywords', {
-                            method: 'POST',
-                            headers: {'Content-Type': 'application/json'},
-                            body: JSON.stringify({keywords: keywords})
-                        })
-                        .then(response => response.json())
-                        .then(data => document.getElementById('password').innerText = data.password);
-                    }
-                </script>`;
+            const response = await fetch('https://your-app-name.herokuapp.com/');
+            const html = await response.text();
+            projectContent.innerHTML = html;
+
+            // Reinitialize the script tags from the loaded content
+            const scripts = projectContent.getElementsByTagName('script');
+            for (let script of scripts) {
+                const newScript = document.createElement('script');
+                newScript.innerHTML = script.innerHTML;
+                document.body.appendChild(newScript);
+            }
         } else if (project === 'project2') {
             projectContent.innerHTML = '<h2>Project2</h2><p>Details about Project2...</p>';
         }
